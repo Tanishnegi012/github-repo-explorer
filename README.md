@@ -1,217 +1,181 @@
-# 🚀 GitHub Repo Explorer
+# GitHub Repo Explorer
 
-A full-stack web application that enables users to search GitHub profiles and explore repositories in real time. Built using React, Node.js, and Express, the application provides detailed GitHub user insights, repository analytics, language statistics, sorting, pagination, repository details, recent searches, server-side caching, and dark/light theme support through a modern and responsive interface.
+A full-stack GitHub Repository Explorer built with React, Node.js, and Express that allows users to search for any public GitHub profile and explore repositories with advanced analytics. The application provides profile insights, repository statistics, language distribution charts, sorting options, pagination, dark/light mode, recent searches, and detailed repository information through a clean and responsive user interface.
 
 ---
 
-## 🌐 Live Demo
+## 🔗 Live Demo
 
 ### Frontend
-
 https://github-repo-explorer-chi-five.vercel.app/
 
 ### Backend API
-
 https://github-repo-explorer-k8sm.onrender.com/
-
----
-
-## 📌 Project Overview
-
-GitHub Repo Explorer helps users quickly discover GitHub profiles and repositories while providing useful insights such as profile information, repository statistics, language distribution, repository filtering, sorting options, and repository details.
-
-The application integrates the GitHub REST API through a custom Express.js backend and presents the data through a clean, responsive, and interactive dashboard.
 
 ---
 
 ## ✨ Features
 
-### 👤 GitHub Profile Search
+### GitHub Profile Search
+- Search any public GitHub username
+- Display profile avatar
+- Display name and username
+- Display bio information
+- Display followers count
+- Display following count
+- Display public repository count
+- Direct link to GitHub profile
 
-* Search any public GitHub username
-* View profile avatar
-* View name and username
-* View bio information
-* View followers count
-* View following count
-* View public repository count
-* Direct link to GitHub profile
+### Repository Explorer
+- Display repository list
+- Repository search/filter functionality
+- Sort repositories by Stars
+- Sort repositories by Name
+- Sort repositories by Last Updated
+- Repository pagination
+- Repository language badges
+- Repository descriptions
+- Repository star count
+- Repository fork count
+- Repository open issues count
+- Repository last updated date
+- Direct repository links
+- Expand/Collapse repository details
 
-### 📂 Repository Explorer
+### Repository Insights
+- Language distribution chart
+- Language statistics summary
+- Repository count per language
+- Analytics dashboard
 
-* Display public repositories
-* Repository search functionality
-* Sort repositories by Stars
-* Sort repositories by Name
-* Sort repositories by Last Updated
-* Repository pagination
-* Repository language badges
-
-### 📊 Repository Analytics
-
-* Language distribution chart
-* Language statistics summary
-* Repository count by language
-* Visual analytics dashboard
-
-### 📄 Repository Insights
-
-* Repository description
-* Star count
-* Fork count
-* Open issues count
-* Default branch information
-* Repository creation date
-* Last updated date
-* Direct GitHub repository link
-* Expand/Collapse repository details
-
-### 🎨 User Experience
-
-* Responsive design
-* Dark Mode / Light Mode support
-* Loading states
-* Error handling
-* Empty state UI
-* Recent search history using LocalStorage
-* Server-side caching for optimized API requests
-* Reduced GitHub API calls for repeated searches
-* Improved response performance
-* Clean and modern user interface
+### User Experience
+- Responsive design
+- Loading states
+- Error handling
+- Empty state UI
+- Dark Mode
+- Light Mode
+- Recent search history using Local Storage
+- Server-side caching for improved performance
+- Reduced GitHub API requests
+- Faster repeated searches
 
 ---
 
 ## 🏗️ System Architecture
 
-```text
-Frontend (React + Vite)
-        │
-        ▼
-Backend (Node.js + Express)
-        │
-        ▼
+React Frontend  
+⬇  
+Express Backend API  
+⬇  
 GitHub REST API
-```
 
-The React frontend communicates with an Express.js backend API which acts as a proxy between the client application and GitHub's REST API.
+The frontend communicates with an Express backend that acts as a proxy layer between the client application and the GitHub REST API. This architecture improves security, centralizes API handling, enables caching, and provides better error management.
 
-The backend also implements in-memory caching to temporarily store recently requested GitHub user data. When the same username is searched again within the cache duration, the cached response is returned instead of making another GitHub API request. This improves performance, reduces API usage, and helps prevent rate-limit issues.
+---
+
+## ⚡ Caching Strategy
+
+The backend implements an in-memory server-side caching mechanism with a 60-second TTL (Time To Live).
+
+When a user searches for a GitHub username:
+
+1. The backend checks whether the requested data already exists in cache.
+2. If cached data is available and has not expired, the cached response is returned immediately.
+3. If no cached data exists, the backend fetches fresh data from the GitHub API.
+4. The response is stored in cache for 60 seconds before expiring.
+
+### Benefits
+
+- Faster response times for repeated searches
+- Reduced GitHub API requests
+- Lower risk of hitting GitHub API rate limits
+- Improved overall application performance
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-
-* React.js
-* Vite
-* Axios
-* Chart.js / Recharts
-* CSS3
+- React.js
+- Vite
+- Axios
+- Chart.js
+- CSS3
 
 ### Backend
-
-* Node.js
-* Express.js
-* Axios
+- Node.js
+- Express.js
+- Axios
 
 ### Deployment
-
-* Vercel (Frontend Hosting)
-* Render (Backend Hosting)
+- Vercel
+- Render
 
 ### External API
-
-* GitHub REST API
+- GitHub REST API
 
 ---
 
 ## 🤔 Why These Technologies?
 
 ### React.js
-
-React was chosen because of its component-based architecture, reusability, and efficient UI rendering capabilities.
+Used for building a reusable and component-based user interface with efficient state management.
 
 ### Vite
-
-Vite provides faster development startup times and optimized production builds compared to traditional build tools.
+Chosen for its fast development server, optimized production builds, and modern tooling.
 
 ### Express.js
-
-Express.js offers a lightweight and flexible framework for creating backend APIs and handling HTTP requests.
+Provides a lightweight and flexible backend framework for handling API requests and responses.
 
 ### Node.js
-
-Node.js enables JavaScript to be used across both frontend and backend development, simplifying the development workflow.
+Enables JavaScript development across both frontend and backend environments.
 
 ### Axios
+Simplifies HTTP requests and API communication.
 
-Axios simplifies API communication and provides consistent request and response handling.
-
-### Chart.js / Recharts
-
-Used to visualize language statistics and repository analytics through interactive charts.
+### Chart.js
+Used to visualize language statistics and repository analytics.
 
 ### GitHub REST API
-
-Provides real-time GitHub profile and repository data.
+Provides real-time GitHub profile and repository information.
 
 ### Vercel
-
-Chosen for fast and reliable frontend deployment with automatic builds and updates.
+Selected for fast and reliable frontend deployment.
 
 ### Render
-
-Used to host the backend API with minimal configuration and easy deployment.
+Used for backend hosting with simple deployment and free-tier support.
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```text
-github-repo-explorer
+github-repo-explorer/
 │
-├── client
-│   ├── public
-│   ├── src
-│   │   ├── components
-│   │   ├── styles
+├── client/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── styles/
 │   │   ├── App.jsx
 │   │   └── main.jsx
-│   │
 │   ├── package.json
 │   └── vite.config.js
 │
-├── server
-│   ├── routes
+├── server/
+│   ├── routes/
 │   ├── index.js
 │   └── package.json
 │
 ├── .gitignore
-└── README.md
+├── README.md
+└── API Documentation
 ```
-
-### Folder Overview
-
-#### client/
-
-Contains the React frontend application responsible for rendering the user interface and displaying repository analytics.
-
-#### server/
-
-Contains the Express.js backend API responsible for communicating with the GitHub REST API.
-
-#### components/
-
-Reusable React components used throughout the application.
-
-#### styles/
-
-Application styling and theme configuration.
 
 ---
 
-## 🔌 API Documentation
+## 📡 API Documentation
 
 ### Get GitHub User and Repository Data
 
@@ -227,25 +191,25 @@ GET
 /api/github/:username
 ```
 
-### Path Parameters
-
-| Parameter | Type   | Description                      |
-| --------- | ------ | -------------------------------- |
-| username  | string | Public GitHub username to search |
-
-### Example Request
+**Example Request**
 
 ```http
 GET /api/github/facebook
 ```
 
-### Request Body
+**Path Parameters**
+
+| Parameter | Type | Description |
+|------------|--------|-------------|
+| username | string | GitHub username to search |
+
+**Request Body**
 
 ```json
 {}
 ```
 
-### Success Response (200)
+### Success Response
 
 ```json
 {
@@ -264,19 +228,19 @@ GET /api/github/facebook
       "name": "react",
       "description": "The library for web and native user interfaces.",
       "language": "JavaScript",
-      "stargazers_count": 235000,
-      "forks_count": 48500,
-      "open_issues_count": 1100,
+      "stargazers_count": 240000,
+      "forks_count": 50000,
+      "open_issues_count": 1200,
       "default_branch": "main",
       "created_at": "2013-05-24T16:15:54Z",
-      "updated_at": "2026-06-12T10:00:00Z",
+      "updated_at": "2026-06-12T10:30:00Z",
       "html_url": "https://github.com/facebook/react"
     }
   ]
 }
 ```
 
-### Error Response (404)
+### User Not Found Response
 
 ```json
 {
@@ -284,7 +248,7 @@ GET /api/github/facebook
 }
 ```
 
-### Error Response (500)
+### Server Error Response
 
 ```json
 {
@@ -294,7 +258,7 @@ GET /api/github/facebook
 
 ---
 
-## ⚙️ Running Locally
+## 🚀 How To Run Locally
 
 ### Clone Repository
 
@@ -302,7 +266,7 @@ GET /api/github/facebook
 git clone https://github.com/Tanishnegi012/github-repo-explorer.git
 ```
 
-### Navigate Into Project
+### Navigate to Project
 
 ```bash
 cd github-repo-explorer
@@ -321,6 +285,12 @@ npm install
 npm run dev
 ```
 
+Frontend runs at:
+
+```http
+http://localhost:5173
+```
+
 ### Install Backend Dependencies
 
 ```bash
@@ -334,15 +304,9 @@ npm install
 npm start
 ```
 
-Frontend runs on:
+Backend runs at:
 
-```text
-http://localhost:5173
-```
-
-Backend runs on:
-
-```text
+```http
 http://localhost:5000
 ```
 
@@ -350,29 +314,27 @@ http://localhost:5000
 
 ## 🎯 Next Steps
 
-The primary focus of this project was to implement all core requirements while maintaining a clean architecture, responsive design, and smooth user experience.
+The primary focus of this project was to implement all core requirements while maintaining a clean architecture, responsive design, and reliable API integration.
 
 ### Features Not Implemented
 
-* Automated unit and integration testing
-* Debounced search suggestions while typing
-* Advanced repository filtering options
+- Automated unit and integration testing
+- Debounced search suggestions while typing
+- Advanced repository filtering options
 
 ### Future Enhancements
 
-* Add GitHub OAuth authentication
-* Add repository comparison tools
-* Add organization-level GitHub analytics
-* Add contributor statistics and activity tracking
-* Add advanced filtering and search capabilities
-* Implement CI/CD workflows using GitHub Actions
-* Improve accessibility and keyboard navigation support
+- GitHub OAuth authentication
+- Repository comparison tools
+- Organization-level GitHub analytics
+- Contributor activity tracking
+- Advanced filtering and search capabilities
+- CI/CD workflows using GitHub Actions
+- Improved accessibility and keyboard navigation support
 
 ---
 
-
 ## 📸 Screenshots
-
 
 ### Home Dashboard
 
