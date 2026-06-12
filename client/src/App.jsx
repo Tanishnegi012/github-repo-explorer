@@ -46,8 +46,9 @@ function App() {
       setExpandedRepoId(null);
 
       const response = await axios.get(
-        `http://localhost:5000/api/github/${cleanUsername}`
-      );
+  `https://github-repo-explorer-k8sm.onrender.com/api/github/${cleanUsername}`
+);
+      
 
       setUser(response.data.user);
       setRepos(response.data.repos);
