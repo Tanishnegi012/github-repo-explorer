@@ -1,130 +1,89 @@
-# GitHub Repo Explorer
+# 🚀 GitHub Repo Explorer
 
-A full-stack web application that allows users to search for any public GitHub profile and explore repository information in a clean and interactive dashboard. The application fetches real-time data from the GitHub REST API through a custom Express.js backend and provides repository analytics, sorting, filtering, pagination, language statistics, and theme switching. This project was built as a full-stack coding exercise focusing on API integration, user experience, and clean architecture.
+A full-stack web application that enables users to search GitHub profiles and explore repositories in real time. Built using React, Node.js, and Express, the application provides detailed GitHub user insights, repository analytics, language statistics, sorting, pagination, repository details, recent searches, server-side caching, and dark/light theme support through a modern and responsive interface.
 
 ---
 
-## 🚀 Live Demo
+## 🌐 Live Demo
 
 ### Frontend
+
 https://github-repo-explorer-chi-five.vercel.app/
 
 ### Backend API
-https://github-reo-explorer-k8sm.onrender.com/
+
+https://github-repo-explorer-k8sm.onrender.com/
+
+---
+
+## 📌 Project Overview
+
+GitHub Repo Explorer helps users quickly discover GitHub profiles and repositories while providing useful insights such as profile information, repository statistics, language distribution, repository filtering, sorting options, and repository details.
+
+The application integrates the GitHub REST API through a custom Express.js backend and presents the data through a clean, responsive, and interactive dashboard.
 
 ---
 
 ## ✨ Features
 
-### GitHub Profile Search
-- Search any public GitHub username
-- Display profile avatar
-- Display name and username
-- Display bio information
-- View followers count
-- View following count
-- View public repository count
-- Direct link to GitHub profile
+### 👤 GitHub Profile Search
 
-### Repository Explorer
-- Display public repositories
-- Search repositories by name
-- Sort repositories by Stars
-- Sort repositories by Name
-- Sort repositories by Last Updated
-- Repository pagination
-- Repository language badges
+* Search any public GitHub username
+* View profile avatar
+* View name and username
+* View bio information
+* View followers count
+* View following count
+* View public repository count
+* Direct link to GitHub profile
 
-### Repository Insights
-- Repository description
-- Star count
-- Fork count
-- Open issues count
-- Default branch information
-- Repository creation date
-- Last updated date
-- Direct GitHub repository link
-- Expand/Collapse repository details
+### 📂 Repository Explorer
 
-### Analytics Dashboard
-- Language distribution chart
-- Language statistics summary
-- Repository count per language
+* Display public repositories
+* Repository search functionality
+* Sort repositories by Stars
+* Sort repositories by Name
+* Sort repositories by Last Updated
+* Repository pagination
+* Repository language badges
 
-### User Experience
-- Responsive design
-- Loading states
-- Error handling
-- Empty state UI
-- Recent search history using LocalStorage
-- Dark Mode / Light Mode support
-- Clean and modern interface
+### 📊 Repository Analytics
 
-### System Architecture
-- React Frontend
-- Express Backend API
-- GitHub REST API Integration
+* Language distribution chart
+* Language statistics summary
+* Repository count by language
+* Visual analytics dashboard
 
----
+### 📄 Repository Insights
 
-## 🛠 Tech Stack
+* Repository description
+* Star count
+* Fork count
+* Open issues count
+* Default branch information
+* Repository creation date
+* Last updated date
+* Direct GitHub repository link
+* Expand/Collapse repository details
 
-### Frontend
-- React.js
-- Vite
-- Axios
-- Chart.js
-- CSS3
+### 🎨 User Experience
 
-### Backend
-- Node.js
-- Express.js
-- Axios
-
-### Deployment
-- Vercel (Frontend Hosting)
-- Render (Backend Hosting)
-
-### External API
-- GitHub REST API
+* Responsive design
+* Dark Mode / Light Mode support
+* Loading states
+* Error handling
+* Empty state UI
+* Recent search history using LocalStorage
+* Server-side caching for optimized API requests
+* Reduced GitHub API calls for repeated searches
+* Improved response performance
+* Clean and modern user interface
 
 ---
 
-## 🤔 Why These Technologies?
+## 🏗️ System Architecture
 
-### React.js
-React was used to build a reusable and component-based user interface. It simplifies state management and enables a clean application structure.
-
-### Vite
-Vite provides extremely fast development startup and optimized production builds, improving the overall development experience.
-
-### Express.js
-Express.js was chosen to create a lightweight backend API that acts as a secure proxy between the frontend and GitHub's REST API.
-
-### Axios
-Axios simplifies API communication and provides consistent request and response handling across both frontend and backend.
-
-### Chart.js
-Chart.js was used to visualize language statistics and repository analytics in an interactive way.
-
-### GitHub REST API
-The GitHub REST API provides real-time profile and repository data for public GitHub users.
-
-### Vercel
-Vercel was selected for frontend deployment because of its simple workflow, automatic deployments, and excellent React support.
-
-### Render
-Render was selected for backend deployment because it provides free and reliable hosting for Node.js applications.
-
----
-
-## 🏗 Architecture
-
-The application follows a client-server architecture.
-
-The React frontend communicates with an Express.js backend API. The backend acts as a proxy layer between the client application and the GitHub REST API. This approach improves security, centralizes error handling, and keeps API communication organized.
-
-```
+```text
 Frontend (React + Vite)
         │
         ▼
@@ -134,46 +93,120 @@ Backend (Node.js + Express)
 GitHub REST API
 ```
 
+The React frontend communicates with an Express.js backend API which acts as a proxy between the client application and GitHub's REST API.
+
+The backend also implements in-memory caching to temporarily store recently requested GitHub user data. When the same username is searched again within the cache duration, the cached response is returned instead of making another GitHub API request. This improves performance, reduces API usage, and helps prevent rate-limit issues.
+
 ---
 
-## 📂 Project Structure
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* Axios
+* Chart.js / Recharts
+* CSS3
+
+### Backend
+
+* Node.js
+* Express.js
+* Axios
+
+### Deployment
+
+* Vercel (Frontend Hosting)
+* Render (Backend Hosting)
+
+### External API
+
+* GitHub REST API
+
+---
+
+## 🤔 Why These Technologies?
+
+### React.js
+
+React was chosen because of its component-based architecture, reusability, and efficient UI rendering capabilities.
+
+### Vite
+
+Vite provides faster development startup times and optimized production builds compared to traditional build tools.
+
+### Express.js
+
+Express.js offers a lightweight and flexible framework for creating backend APIs and handling HTTP requests.
+
+### Node.js
+
+Node.js enables JavaScript to be used across both frontend and backend development, simplifying the development workflow.
+
+### Axios
+
+Axios simplifies API communication and provides consistent request and response handling.
+
+### Chart.js / Recharts
+
+Used to visualize language statistics and repository analytics through interactive charts.
+
+### GitHub REST API
+
+Provides real-time GitHub profile and repository data.
+
+### Vercel
+
+Chosen for fast and reliable frontend deployment with automatic builds and updates.
+
+### Render
+
+Used to host the backend API with minimal configuration and easy deployment.
+
+---
+
+## 📁 Project Structure
 
 ```text
-github-repo-explorer/
+github-repo-explorer
 │
-├── client/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── styles/
+├── client
+│   ├── public
+│   ├── src
+│   │   ├── components
+│   │   ├── styles
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   │
 │   ├── package.json
 │   └── vite.config.js
 │
-├── server/
-│   ├── routes/
+├── server
+│   ├── routes
 │   ├── index.js
 │   └── package.json
 │
 ├── .gitignore
-├── README.md
-└── package.json
+└── README.md
 ```
 
 ### Folder Overview
 
 #### client/
-Contains the React frontend application responsible for the user interface, repository visualization, analytics dashboard, and theme management.
+
+Contains the React frontend application responsible for rendering the user interface and displaying repository analytics.
 
 #### server/
-Contains the Express.js backend API responsible for communicating with the GitHub REST API and returning formatted data to the frontend.
+
+Contains the Express.js backend API responsible for communicating with the GitHub REST API.
 
 #### components/
+
 Reusable React components used throughout the application.
 
 #### styles/
+
 Application styling and theme configuration.
 
 ---
@@ -194,13 +227,11 @@ GET
 /api/github/:username
 ```
 
-**Path Parameters**
+### Path Parameters
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| username | string | Public GitHub username |
-
----
+| Parameter | Type   | Description                      |
+| --------- | ------ | -------------------------------- |
+| username  | string | Public GitHub username to search |
 
 ### Example Request
 
@@ -249,7 +280,7 @@ GET /api/github/facebook
 
 ```json
 {
-  "message": "User not found"
+  "message": "GitHub user not found"
 }
 ```
 
@@ -263,7 +294,7 @@ GET /api/github/facebook
 
 ---
 
-## 💻 Running Locally
+## ⚙️ Running Locally
 
 ### Clone Repository
 
@@ -317,16 +348,25 @@ http://localhost:5000
 
 ---
 
-## 🎯 Future Improvements
+## 🎯 Next Steps
 
-- Add server-side caching to reduce GitHub API requests
-- Implement debounced search suggestions
-- Add repository language filtering
-- Add GitHub organization analytics
-- Add contributor statistics
-- Add repository activity charts
-- Add unit and integration tests
-- Add advanced repository comparison tools
+The primary focus of this project was to implement all core requirements while maintaining a clean architecture, responsive design, and smooth user experience.
+
+### Features Not Implemented
+
+* Automated unit and integration testing
+* Debounced search suggestions while typing
+* Advanced repository filtering options
+
+### Future Enhancements
+
+* Add GitHub OAuth authentication
+* Add repository comparison tools
+* Add organization-level GitHub analytics
+* Add contributor statistics and activity tracking
+* Add advanced filtering and search capabilities
+* Implement CI/CD workflows using GitHub Actions
+* Improve accessibility and keyboard navigation support
 
 ---
 
@@ -349,16 +389,6 @@ http://localhost:5000
 ### Dark Mode Interface
 
 <img width="1878" height="888" alt="Screenshot 2026-06-12 090409" src="https://github.com/user-attachments/assets/0fde3ee5-5a6c-41ac-a80a-237491202434" />
-
-## 🚀 Future Improvements
-
-- GitHub OAuth Authentication
-- Advanced repository filtering
-- Repository comparison tool
-- Contribution graph visualization
-- Bookmark favorite profiles
-- Export analytics reports
-- Trending repository recommendations
 
 ---
 
