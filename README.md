@@ -1,154 +1,155 @@
 # 🚀 GitHub Repo Explorer
 
-<div align="center">
+A full-stack web application that enables users to search GitHub profiles and analyze repositories in real time. Built with React, Node.js, and Express, the application provides detailed GitHub user insights, repository analytics, language statistics, interactive charts, pagination, repository filtering, and dark/light theme support.
 
-### Search GitHub Users • Explore Repositories • Analyze Languages
+## 🔗 Live Demo
 
-A modern full-stack web application that helps users discover GitHub profiles, explore repositories, visualize programming language statistics, and analyze repository insights through an intuitive dashboard.
+**Frontend:**  
+https://github-repo-explorer-chi-five.vercel.app/
 
-### 🌐 Live Demo
-
-**https://github-repo-explorer-chi-five.vercel.app/**
-
-</div>
-
----
-
-## 📌 About The Project
-
-GitHub Repo Explorer is a full-stack web application built using React, Node.js, and the GitHub REST API.
-
-The application allows users to search any GitHub profile and instantly access repository information, language analytics, repository statistics, and profile details through a clean and responsive interface.
-
-The project demonstrates practical implementation of:
-
-* REST API Integration
-* Full-Stack Development
-* State Management
-* Data Visualization
-* Responsive UI Design
-* Deployment & Production Hosting
+**Backend API:**  
+https://github-repo-explorer-k8sm.onrender.com/
 
 ---
 
 ## ✨ Features
 
-### 🔍 GitHub Profile Search
+### 👤 GitHub User Search
+- Search any public GitHub username
+- View profile information, avatar, bio, and statistics
+- Access GitHub profile directly
 
-* Search any public GitHub user
-* View profile details instantly
-* Access GitHub profile directly
-* Real-time API integration
+### 📊 Repository Analytics
+- Display repositories with detailed information
+- Repository search and filtering
+- Sort repositories by stars
+- Pagination for large repository collections
+- Repository language classification
 
-### 📂 Repository Explorer
+### 📈 Language Statistics
+- Interactive language chart
+- Repository count by language
+- Visual analytics dashboard
 
-* Browse public repositories
-* Repository search functionality
-* Sort repositories by stars
-* Pagination support
-* Repository detail expansion
-
-### 📊 Analytics Dashboard
-
-* Language distribution chart
-* Language usage statistics
-* Repository count by language
-* Visual repository insights
+### 📂 Repository Insights
+- Fork count
+- Open issues
+- Default branch
+- Creation date
+- Direct GitHub repository links
 
 ### 🎨 Modern User Experience
-
-* Dark Mode / Light Mode
-* Responsive design
-* Loading indicators
-* Error handling
-* Recent search history
-* Local storage persistence
-
----
-
-## 🏗️ System Architecture
-
-```text
-User
- │
- ▼
-React Frontend
- │
- ▼
-Express Backend
- │
- ▼
-GitHub REST API
- │
- ▼
-Processed Repository Data
-```
+- Dark Mode / Light Mode
+- Responsive design
+- Loading states
+- Error handling
+- Recent search history
+- Clean and intuitive interface
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-
-* React.js
-* Vite
-* Axios
-* CSS3
-* Recharts
+- React.js
+- Vite
+- Axios
+- Chart.js
+- CSS3
 
 ### Backend
-
-* Node.js
-* Express.js
-
-### APIs
-
-* GitHub REST API
+- Node.js
+- Express.js
+- Axios
 
 ### Deployment
+- Vercel
+- Render
 
-* Vercel (Frontend)
-* Render (Backend)
+### External API
+- GitHub REST API
 
-### Version Control
+---
 
-* Git
-* GitHub
+## 🏗️ Architecture
+
+```text
+Client (React)
+      │
+      ▼
+Express Backend API
+      │
+      ▼
+GitHub REST API
+```
+
+The frontend communicates with an Express backend which acts as a proxy layer for GitHub API requests. The backend handles API communication and returns processed data to the frontend.
 
 ---
 
 ## 📁 Project Structure
 
-```bash
-github-repo-explorer
+```text
+github-repo-explorer/
 │
-├── client
-│   ├── public
-│   ├── src
-│   │   └── App.jsx
-│   │
+├── client/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │   └── package.json
 │
-├── server
+├── server/
 │   ├── index.js
+│   ├── routes/
 │   └── package.json
 │
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🔌 API Documentation
+
+### Get User Profile and Repositories
+
+```http
+GET /api/github/:username
+```
+
+### Example
+
+```http
+GET /api/github/facebook
+```
+
+### Success Response
+
+```json
+{
+  "user": {},
+  "repos": []
+}
+```
+
+### Error Response
+
+```json
+{
+  "message": "User not found"
+}
+```
+
+---
+
+## ⚙️ Run Locally
 
 ### Clone Repository
 
 ```bash
 git clone https://github.com/Tanishnegi012/github-repo-explorer.git
-```
-
-### Move Into Project
-
-```bash
 cd github-repo-explorer
 ```
 
@@ -160,13 +161,15 @@ npm install
 npm start
 ```
 
-Server:
+Backend runs on:
 
-```bash
+```text
 http://localhost:5000
 ```
 
 ### Frontend Setup
+
+Open a new terminal:
 
 ```bash
 cd client
@@ -174,87 +177,60 @@ npm install
 npm run dev
 ```
 
-Application:
+Frontend runs on:
 
-```bash
+```text
 http://localhost:5173
 ```
 
 ---
 
-## 📡 API Endpoint
+## 📸 Screenshots
 
-### User Information
 
-```http
-GET /api/github/:username
-```
+### Home Dashboard
 
-Returns:
+<img width="1891" height="899" alt="Screenshot 2026-06-12 085952" src="https://github.com/user-attachments/assets/922e1686-b362-4e37-a595-ade53cda4242" />
 
-* User Profile
-* Followers
-* Following
-* Repository Count
-* Repository Data
+### User Profile Overview
 
----
+<img width="1871" height="899" alt="Screenshot 2026-06-12 090028" src="https://github.com/user-attachments/assets/feb6dabb-9165-4264-af1d-fad2b672ac8c" />
 
-## 🎯 Key Highlights
+### Repository Analytics & Language Statistics
 
-✔ Full Stack Architecture
-✔ GitHub REST API Integration
-✔ Interactive Language Analytics
-✔ Responsive User Interface
-✔ Dark/Light Theme Support
-✔ Recent Search Persistence
-✔ Repository Filtering & Sorting
-✔ Production Deployment
+<img width="1881" height="886" alt="Screenshot 2026-06-12 090051" src="https://github.com/user-attachments/assets/ae581377-71bd-47be-b08c-a379cac5ae57" />
 
----
+### Dark Mode Interface
 
-## 📚 What I Learned
+<img width="1878" height="888" alt="Screenshot 2026-06-12 090409" src="https://github.com/user-attachments/assets/0fde3ee5-5a6c-41ac-a80a-237491202434" />
 
-During development of this project, I gained hands-on experience with:
+## 🚀 Future Improvements
 
-* React Hooks
-* Axios API Requests
-* Express Server Development
-* REST API Consumption
-* State Management
-* Data Visualization
-* Full Stack Deployment
-* Git Workflow & Version Control
+- GitHub OAuth Authentication
+- Advanced repository filtering
+- Repository comparison tool
+- Contribution graph visualization
+- Bookmark favorite profiles
+- Export analytics reports
+- Trending repository recommendations
 
 ---
 
-## 🔮 Future Enhancements
+## 📋 Commit History
 
-* GitHub Organization Support
-* Repository Contribution Graphs
-* Advanced Repository Filters
-* Authentication & User Accounts
-* Favorite Repository System
-* Export Repository Analytics
-* GitHub Activity Tracking
+This project was developed incrementally following best development practices:
 
----
-
-## 🌍 Live Deployment
-
-Frontend:
-
-https://github-repo-explorer-chi-five.vercel.app/
-
-Backend:
-
-https://github-repo-explorer-k8sm.onrender.com
+- Initial project setup
+- Set up Express backend and GitHub API proxy
+- Set up React frontend with Vite
+- Build GitHub profile and repository explorer
+- Prepare backend for deployment
 
 ---
 
 ## 👨‍💻 Author
 
-### Tanish Negi
+**Tanish Negi**
 
 B.Tech Computer Science Engineering (2026)
 
@@ -262,10 +238,6 @@ GitHub: https://github.com/Tanishnegi012
 
 ---
 
-## ⭐ Show Your Support
+## 📄 License
 
-If you found this project useful or interesting:
-
-* ⭐ Star this repository
-* 🍴 Fork this repository
-* 📢 Share your feedback
+Licensed under the MIT License.
